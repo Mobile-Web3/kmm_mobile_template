@@ -75,6 +75,7 @@ android {
         implementation(libs.androidx.compose.ui.tooling)
         implementation(libs.androidx.compose.foundation)
         implementation(libs.androidx.compose.material)
+        implementation(libs.androidx.compose.navigation)
         //Compose Utils
         implementation(libs.activity.compose)
         implementation(libs.accompanist.insets)
@@ -86,8 +87,6 @@ android {
         //DI
         implementation(libs.koin.core)
         implementation(libs.koin.android)
-        //Navigation
-        implementation(libs.voyager.navigator)
         //WorkManager
         implementation(libs.work.runtime.ktx)
         //Glide

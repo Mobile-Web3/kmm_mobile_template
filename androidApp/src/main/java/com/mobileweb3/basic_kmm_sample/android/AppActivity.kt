@@ -15,12 +15,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
-import cafe.adriel.voyager.navigator.Navigator
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.mobileweb3.basic_kmm_sample.android.screens.AppScreen
+import com.mobileweb3.basic_kmm_sample.android.screens.main.MainScreen
 import com.mobileweb3.basic_kmm_sample.android.ui.AppTheme
 import com.mobileweb3.basic_kmm_sample.app.MainSideEffect
 import com.mobileweb3.basic_kmm_sample.app.MainStore
@@ -83,7 +85,15 @@ class AppActivity : ComponentActivity() {
                                 )
                             }
                         ) {
-                            Navigator(AppScreen())
+                            val navController = rememberNavController()
+
+                            NavHost(navController = navController, startDestination = "start") {
+                                composable("start") {
+                                    MainScreen(
+                                        store = store
+                                    )
+                                }
+                            }
                         }
                     }
                 }
